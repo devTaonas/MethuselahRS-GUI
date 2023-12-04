@@ -5,7 +5,7 @@
 
 <h3 align="center">Version V1.0.0.0</h3>
 
-![v1](https://i.imgur.com/C3fQeVZ.gif)
+![v1]([https://i.imgur.com/C3fQeVZ.gif](https://i.imgur.com/kxccrgq.gif))
 ---
 <h3 align="center">Version V1.0.0.1</h3>
 	
@@ -13,5 +13,6 @@
 ---
 
 <h3 align="center">Version V1.0.1.1</h3>
-![v1](https://i.imgur.com/kxccrgq.gif)
+![v1.1](https://i.imgur.com/kxccrgq.gif)
+
 ---
