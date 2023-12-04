@@ -88,20 +88,5 @@ namespace MethuselahRS_Client
                 Methods.SendMessage(this.Handle, Methods.WM_NCLBUTTONDOWN, Methods.HT_CAPTION, 0);
             }
         }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
