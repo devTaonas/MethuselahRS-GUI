@@ -17,6 +17,6 @@
 
 <h3 align="center">Version V1.0.1.1</h3>
 
-![0](https://i.imgur.com/kxccrgq.gif)
+![0](https://i.imgur.com/n24Jb3F.gif)
 
 ---
