@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MethuselahRS_Client.Controller.Models;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace MethuselahRS_Client.GUI
 {
-    public class DynamicPanelCreator
+    public class ClientCreator
     {
         public Color PanelBackColor { get; set; } = Color.FromArgb(37, 37, 38);
 
@@ -14,12 +15,12 @@ namespace MethuselahRS_Client.GUI
         public int VerticalBuffer { get; set; } = 10;
         private int panelCounter = 0;
 
-        public DynamicPanelCreator()
+        public ClientCreator()
         {
 
         }
 
-        public Panel CreatePanel(Control parent)
+        public RS3Panel CreatePanel(Control parent)
         {
             Size panelSize = new Size(302, 100);
 
@@ -50,16 +51,20 @@ namespace MethuselahRS_Client.GUI
                 AutoSize = true,
                 Font = new Font("Tahoma", 9.75F, FontStyle.Bold),
                 ForeColor = Color.LightGray,
-                Text = "View Client #",
-                Location = new Point(108, 5)
+                Text = "View Client " + (panelCounter + 1),
+                Location = new Point(108, 5),
+                Tag = panelCounter,
             };
             panel3.Controls.Add(label2);
+
+            RS3Panel rs3Panel = new RS3Panel(panel2, label2);
 
             lastPanelX += panel2.Width + HorizontalBuffer;
             panelCounter++;
 
             parent.Controls.Add(panel2);
-            return panel2;
+
+            return rs3Panel;
         }
     }
 }

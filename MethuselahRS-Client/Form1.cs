@@ -11,10 +11,12 @@ namespace MethuselahRS_Client
     {
         private readonly UserControlManager _userControlManager;
         private static Control _currentlyActive;
+        public static Controller.ProgramController _programController;
 
         public Form1()
         {
             InitializeComponent();
+            _programController = new Controller.ProgramController();
             _userControlManager = new UserControlManager(new Dictionary<Type, UserControl>
             {
                 { typeof(Homepage), new Homepage() },

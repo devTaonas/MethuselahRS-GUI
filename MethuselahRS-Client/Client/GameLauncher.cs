@@ -1,7 +1,10 @@
-﻿using System;
+﻿using MethuselahRS_Client.Controller.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,7 +20,7 @@ namespace MethuselahRS_Client.Client
         {
         }
 
-        public Process LaunchAndBindProcessAsync()
+        public RS3Client LaunchProcess()
         {
             var processStartInfo = new ProcessStartInfo
             {
@@ -33,8 +36,6 @@ namespace MethuselahRS_Client.Client
 
             if (process != null)
             {
-
-
                 bool isBound = WaitForProcessAndBind(process);
                 if (!isBound)
                 {
@@ -44,7 +45,19 @@ namespace MethuselahRS_Client.Client
                 }
             }
 
-            return process;
+            RS3Client rS3Client = new RS3Client
+            {
+                GameClient = process,
+                MainModule = process.MainModule
+            };
+
+            rS3Client.RSBaseAddress = rS3Client.MainModule.BaseAddress;
+            rS3Client.RSExeFile = rS3Client.MainModule.FileName;
+            rS3Client.RSExeSize = rS3Client.MainModule.ModuleMemorySize;
+            rS3Client.RSHash = FindMD5(rS3Client.RSExeFile);
+            rS3Client.RSHashString = CalculateMD5(rS3Client.RSExeFile);
+
+            return rS3Client;
         }
 
         public static Panel Main;
@@ -58,13 +71,34 @@ namespace MethuselahRS_Client.Client
                 {
                     if (process.MainWindowTitle.Equals("NxtApp", StringComparison.OrdinalIgnoreCase))
                     {
-
                         return true;
                     }
                 }
                 Thread.Sleep(500);
             }
             return false;
+        }
+
+        internal static byte[] FindMD5(string RSExeFile)
+        {
+            using (var md5 = MD5.Create())
+            {
+                using (var stream = File.OpenRead(RSExeFile))
+                {
+                    return md5.ComputeHash(stream);
+                }
+            }
+        }
+        static string CalculateMD5(string RSExeFile)
+        {
+            using (var md5 = MD5.Create())
+            {
+                using (var stream = File.OpenRead(RSExeFile))
+                {
+                    var hash = md5.ComputeHash(stream);
+                    return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+                }
+            }
         }
     }
 }
