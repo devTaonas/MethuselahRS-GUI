@@ -3,9 +3,17 @@
 
 ---
 
-<h3 align="center">Version V1.0.0.0</h3>
+<h3 align="center">Version V1.0.2.1</h3>
 
-![](https://i.imgur.com/C3fQeVZ.gif)
+	> Binding of the RS3 Client + rudimentary (WIP) hiding / showing
+
+![0](https://i.imgur.com/BlT9wCm.gif)
+
+---
+
+<h3 align="center">Version V1.0.1.1</h3>
+
+![0](https://i.imgur.com/n24Jb3F.gif)
 
 ---
 
@@ -15,8 +23,8 @@
  
 ---
 
-<h3 align="center">Version V1.0.1.1</h3>
+<h3 align="center">Version V1.0.0.0</h3>
 
-![0](https://i.imgur.com/n24Jb3F.gif)
+![](https://i.imgur.com/C3fQeVZ.gif)
 
 ---
