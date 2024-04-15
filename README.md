@@ -1,7 +1,8 @@
+<h1 align="center">MethuselahRS-Client</h1>
 <h1 align="center">An incomplete RS3 Bot</h1>
 <h3 align="center">Project Abandoned</h3>
+---
 
-<h1 align="center">MethuselahRS-Client</h1>
 <h3 align="center">GUI Base Design</h3>
 
 ---
